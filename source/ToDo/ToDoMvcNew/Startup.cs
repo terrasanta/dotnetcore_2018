@@ -1,14 +1,18 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using TodoMVC.Data;
-using TodoMVC.Models;
-using TodoMVC.Services;
+using ToDoMvcNew.Data;
+using ToDoMvcNew.Models;
+using ToDoMvcNew.Services;
 
-namespace TodoMVC
+namespace ToDoMvcNew
 {
     public class Startup
     {
@@ -32,7 +36,7 @@ namespace TodoMVC
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
 
-            services.AddSingleton<ITodoItemService, TodoItemService>();
+            services.AddSingleton<ITodoItemService, FakeTodoItemService>();
 
             services.AddMvc();
         }
